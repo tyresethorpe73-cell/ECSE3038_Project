@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "author": "ECSE3038",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-ds18b20",
+      "id": "temp1",
+      "top": -80,
+      "left": 150,
+      "attrs": { "temperature": "28" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -80,
+      "left": -100,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 100,
+      "left": -80,
+      "attrs": { "color": "red", "label": "Light" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 60,
+      "left": -80,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 100,
+      "left": -40,
+      "attrs": { "color": "blue", "label": "Fan" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 60,
+      "left": -40,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -40,
+      "left": 170,
+      "attrs": { "value": "4700" }
+    }
+  ],
+  "connections": [
+    [ "temp1:GND", "esp:GND.1", "black", [] ],
+    [ "temp1:VCC", "esp:3V3", "red", [] ],
+    [ "temp1:DQ", "esp:D4", "green", [] ],
+    [ "r3:1", "esp:3V3", "red", [] ],
+    [ "r3:2", "esp:D4", "green", [] ],
+    [ "pir1:GND", "esp:GND.2", "black", [] ],
+    [ "pir1:VCC", "esp:3V3", "red", [] ],
+    [ "pir1:OUT", "esp:D15", "orange", [] ],
+    [ "r1:1", "esp:D22", "gold", [] ],
+    [ "r1:2", "led1:A", "gold", [] ],
+    [ "led1:C", "esp:GND.1", "black", [] ],
+    [ "r2:1", "esp:D23", "blue", [] ],
+    [ "r2:2", "led2:A", "blue", [] ],
+    [ "led2:C", "esp:GND.1", "black", [] ]
+  ]
+}
