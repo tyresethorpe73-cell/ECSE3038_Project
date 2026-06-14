@@ -15,7 +15,7 @@ OneWire oneWire(TEMP_PIN);
 DallasTemperature tempSensor(&oneWire);
 
 unsigned long lastRequest = 0;
-const unsigned long interval = 5000;
+const unsigned long interval = 2000;
 
 void connectWiFi() {
   if (WiFi.status() == WL_CONNECTED) {
